@@ -62,8 +62,8 @@ float: right;
 }
 
 footer {
-    height: 100px;
-    line-height: 60px;
+    height: 60px;
+    line-height: 100px;
     background:#ddd; 
     clear: both;
 }
