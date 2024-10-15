@@ -12,7 +12,7 @@
     <div id="wrapper">
         <nav>
             <ul>
-            <li><a href="">Switch</a><li>
+            <li><a href="/IT261/website/daily.php">Switch</a><li>
             <li><a href="">Troubleshoot</a><li>
             <li><a href="">Calculator</a><li>
             <li><a href="">Email</a><li>
@@ -33,13 +33,21 @@
 <aside>
 <h2>Weekly Class Exercises</h2>
 <h3>Week 2</h3>
-<ol>
+<ul>
     <li><a href="weeks/week2/var.php">var.php</a></li>
     <li><a href="weeks/week2/vars2.php">var2.php</a></li>
     <li><a href="weeks/week2/currency-logic.php">currency-logic.php</a></li>
     <li><a href="weeks/week2/currency.php">currency.php</a></li>
     <li><a href="weeks/week2/heredoc.php">heredoc.php</a></li>
-</ol>
+</ul>
+<h3>Week 3</h3>
+<ul>
+    <li><a href="weeks/week3/if.php">if.php</a></li>
+    <li><a href="weeks/week3/date.php">date.php</a></li>
+    <li><a href="weeks/week3/for-each.php">for-each.php</a></li>
+    <li><a href="weeks/week3/for-loop.php">for-loop.php</a></li>
+    <li><a href="weeks/week3/switch.php">switch.php</a></li>
+</ul>
 </aside>
 
 </div>
