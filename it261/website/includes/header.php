@@ -52,49 +52,49 @@ switch($today) {
         $game = '<h2>Sunday is our World of Warcraft Day!</h2>';
         $pic = 'wow.jpg';
         $alt = 'World of Warcraft';
-        $content = '<p> <b>World of Warcraft<b> is a massively multiplayer online role-playing game (MMORPG) set in the fantasy world of Azeroth. Players choose a faction and class, completing quests, exploring vast continents, and engaging in epic PvE and PvP battles.</p>';
+        $content = '<p> <b>World of Warcraft</b> is a massively multiplayer online role-playing game (MMORPG) set in the fantasy world of Azeroth. Players choose a faction and class, completing quests, exploring vast continents, and engaging in epic PvE and PvP battles.</p>';
         break;
         case 'Monday' :
         $actDay = 'red';
         $game = '<h2>Monday is our The Legend of Zelda: Breath of the Wild Day!</h2>';
         $pic = 'zelda.jpg';
         $alt = 'The Legend of Zelda: Breath of the Wild';
-        $content = '<p> <b>The Legend of Zelda: Breath of the Wild<b> is a vast open-world action-adventure game where players explore the kingdom of Hyrule, solving puzzles, fighting monsters, and uncovering secrets to defeat the evil Calamity Ganon.</p>';
+        $content = '<p> <b>The Legend of Zelda: Breath of the Wild</b> is a vast open-world action-adventure game where players explore the kingdom of Hyrule, solving puzzles, fighting monsters, and uncovering secrets to defeat the evil Calamity Ganon.</p>';
         break;
         case 'Tuesday' :
         $actDay = 'orange';
         $game = '<h2>Monday is our Super Mario Odyssey Day!</h2>';
         $pic = 'mario.png';
         $alt = 'Super Mario Odyssey';
-        $content = '<p><b>Super Mario Odyssey<b> is a 3D platformer featuring Mario on an epic journey across different worlds to rescue Princess Peach. Players collect "Power Moons" to power Mario\’s airship while using his magical cap to possess enemies.</p>';
+        $content = '<p><b>Super Mario Odyssey</b> is a 3D platformer featuring Mario on an epic journey across different worlds to rescue Princess Peach. Players collect "Power Moons" to power Mario\’s airship while using his magical cap to possess enemies.</p>';
         break;
         case 'Wednesday' :
         $actDay = 'green';
         $game = '<h2>Wednesday is our Shadow of War Day!</h2>';
         $pic = 'war.jpg';
         $alt = 'Shadow of War';
-        $content = '<p><b>Shadow of War<b> is an action role-playing game set in the world of J.R.R. Tolkien\’s Middle-earth. Players control Talion, a ranger infused with the spirit of an elf lord, as they battle against Sauron\’s forces, recruit orcs, and conquer fortresses using the innovative Nemesis system.</p>';
+        $content = '<p><b>Shadow of War</b> is an action role-playing game set in the world of J.R.R. Tolkien\’s Middle-earth. Players control Talion, a ranger infused with the spirit of an elf lord, as they battle against Sauron\’s forces, recruit orcs, and conquer fortresses using the innovative Nemesis system.</p>';
         break;
         case 'Thursday' :
         $actDay = 'purple';
         $game = '<h2>Thursday is our Hollow Knight Day!</h2>';
         $pic = 'knight.jpg';
         $alt = 'Hollow Knight';
-        $content = '<p><b>Hollow Knight<b> is a challenging 2D action-adventure game set in a beautifully designed underground world. Players take control of a silent, mysterious knight as they explore ancient ruins and battle fierce enemies.</p>';
+        $content = '<p><b>Hollow Knight</b> is a challenging 2D action-adventure game set in a beautifully designed underground world. Players take control of a silent, mysterious knight as they explore ancient ruins and battle fierce enemies.</p>';
         break;
         case 'Friday' :
         $actDay = 'brown';
         $game = '<h2>Friday is our Minecraft Day!</h2>';
         $pic = 'minecraft.jpg';
         $alt = 'Minecraft';
-        $content = '<p><b>Minecraft<b> is a sandbox game where players can build and explore limitless worlds made of blocks. With survival and creative modes, the game allows for crafting, building structures, and fending off creatures.</p>';
+        $content = '<p><b>Minecraft</b> is a sandbox game where players can build and explore limitless worlds made of blocks. With survival and creative modes, the game allows for crafting, building structures, and fending off creatures.</p>';
         break;
         case 'Saturday' :
         $actDay = 'pink';
         $game = '<h2>Saturday is our Celeste Day!</h2>';
         $pic = 'celeste.png';
         $alt = 'Celeste';
-        $content = '<p><b>Celeste<b> is a pixel-art platformer about a young woman named Madeline who attempts to climb Celeste Mountain. The game features challenging puzzles, reflex-based platforming, and an emotionally driven narrative.</p>';
+        $content = '<p><b>Celeste</b> is a pixel-art platformer about a young woman named Madeline who attempts to climb Celeste Mountain. The game features challenging puzzles, reflex-based platforming, and an emotionally driven narrative.</p>';
 }
 
 ?>
