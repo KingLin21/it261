@@ -123,9 +123,10 @@ $last_name = '';
 $email = '';
 $phone = '';
 $gender = '';
-$regions = '';
+$genres = '';
 $comments = '';
 $privacy = '';
+$video_games = '';
 $wines = '';
 
 $first_name_err = '';
@@ -133,106 +134,125 @@ $last_name_err = '';
 $email_err = '';
 $phone_err = '';
 $gender_err = '';
-$regions_err = '';
+$genres_err = '';
 $comments_err = '';
 $privacy_err = '';
+$video_games_err = '';
 $wines_err = '';
 
 
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-if(empty($_POST['wines'])) {
-$wines_err = 'What... no wines?';
-
-} else {
-    $wines= $_POST['wines'];
-}
-
-if(empty($_POST['first_name'])) {
-    $first_name_err = 'Please fill in your first name';
-    
+    if (empty($_POST['wines'])) {
+        $wines_err = 'What... no wines?';
     } else {
-        $first_name= $_POST['first_name'];
+        $wines = $_POST['wines'];
     }
-    
-if(empty($_POST['last_name'])) {
+    if (empty($_POST['video_games'])) {
+        $video_games_err = 'What... no video games?';
+    } else {
+        $video_games = $_POST['video_games'];
+    }
+
+    if (empty($_POST['first_name'])) {
+        $first_name_err = 'Please fill in your first name';
+    } else {
+        $first_name = $_POST['first_name'];
+    }
+
+    if (empty($_POST['last_name'])) {
         $last_name_err = 'Please fill in your last name';
-        
     } else {
-            $last_name= $_POST['last_name'];
+        $last_name = $_POST['last_name'];
     }
-if(empty($_POST['email'])) {
+
+    if (empty($_POST['email'])) {
         $email_err = 'Please fill in your email';
-        
     } else {
-            $email= $_POST['email'];
+        $email = $_POST['email'];
     }
 
-if(empty($_POST['gender'])) {
-        $gender_err = 'Please check your gender';
-        
+    if (empty($_POST['gender'])) {
+        $gender_err = 'Please select your gender';
     } else {
-            $gender= $_POST['gender'];
+        $gender = $_POST['gender'];
     }
 
-if(empty($_POST['phone'])) {
-        $phone_err = 'Please fill in your phone number';
-        
+    if (empty($_POST['phone'])) {
+        $phone_err = 'Your phone number please!';
+    } elseif (!preg_match('/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/', $_POST['phone'])) {
+        $phone_err = 'Invalid format! Use xxx-xxx-xxxx';
     } else {
-            $phone= $_POST['phone'];
+        $phone = $_POST['phone'];
     }
-if(empty($_POST['comments'])) {
+
+    if (empty($_POST['comments'])) {
         $comments_err = 'We value your feedback';
-        
     } else {
-            $comments= $_POST['comments'];
-    }
-if(empty($_POST['regions'])) {
-        $regions_err = 'Please fill in your region';
-        
-    } else {
-            $regions= $_POST['regions'];
+        $comments = $_POST['comments'];
     }
 
-if(empty($_POST['privacy'])) {
-        $privacy_err = 'You must be agree to receive spam email!';
-        
+    if (empty($_POST['genres'])) {
+        $genres_err = 'Please select a genre';
     } else {
-            $privacy= $_POST['privacy'];
+        $genres = $_POST['genres'];
     }
 
-function my_wines($wines) {
-    $my_return'';
-    if(!empty($_POST['wines'])) {
-        $my_return = implode(',' , $_POST['wines']);
+    if (empty($_POST['privacy'])) {
+        $privacy_err = 'You must agree to the privacy policy.';
+    } else {
+        $privacy = $_POST['privacy'];
     }
-    return $my_return;
+    function my_wines($wines) {
+        $my_return = '';
+        if (!empty($_POST['wines'])) {
+            $my_return = implode(', ', $_POST['wines']);
+        }
+        return $my_return;
+    }
+    function my_video_games($video_games) {
+        $my_return = '';
+        if (!empty($_POST['video_games'])) {
+            $my_return = implode(', ', $_POST['video_games']);
+        }
+        return $my_return;
+    }
+
+    if (isset($_POST['first_name'], $_POST['last_name'], $_POST['email'], $_POST['phone'], $_POST['gender'], $_POST['video_games'], $_POST['comments'], $_POST['genres'], $_POST['privacy'])) {
+        $to = '';
+        $subject = 'Form Submission on ' . date('m/d/y, h:i A');
+        $body = '
+First Name: ' . $first_name . ' ' . PHP_EOL . '
+Last Name: ' . $last_name . ' ' . PHP_EOL . '
+Email: ' . $email . ' ' . PHP_EOL . '
+Gender: ' . $gender . ' ' . PHP_EOL . '
+Video Games: ' . my_video_games($video_games) . ' ' . PHP_EOL . '
+Genres: ' . $genres . ' ' . PHP_EOL . '
+Comments: ' . $comments . ' ' . PHP_EOL . '
+Phone: ' . $phone . ' ' . PHP_EOL;
+
+        $headers = array(
+            'From' => 'noreply@studentswa.com'
+        );
+
+        if (!empty($first_name && $last_name && $email && $gender && $video_games && $genres && $phone && $comments) && preg_match('/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/', $_POST['phone'])) {
+            mail($to, $subject, $body, $headers);
+            header('Location: thx.php');
+        }
+    }
 }
-}
-if(isset($_POST['first_name'], $_POST['last_name'], $_POST['email'], $_POST['phone'], $_POST['gender'], $_POST['wines'], $_POST['comments'], $_POST['regions'], $_POST['privacy'])) {
-$to = 'sebastianlinhart112@gmail.com';
-$subject = 'Test email on '.date('m/d/y, h i A');
-$body = '
-First Name: '.$first_name.' '.PHP_EOL.'
-Last Name: '.$last_name.' '.PHP_EOL.'
-Email: '.$email.' '.PHP_EOL.'
-Gender: '.$gender.' '.PHP_EOL.'
-Wine: '.my_wines($wines).' '.PHP_EOL.'
-Regions: '.$regions.' '.PHP_EOL.'
-Comments: '.$comments.' '.PHP_EOL.'
-Phone: '.$phone.' '.PHP_EOL.'
 
+$photos = [
+    'photo1',
+    'photo2',
+    'photo3',
+    'photo4',
+    'photo5'
+];
 
-
-';
-$headers = array(
-    'From' => 'noreply@studentswa.com'
-);
-
-if(!empty(
-    $first_name && $last_name && $email && $gender && $wines && $regions && $phone && $comments)) {
-        mail($to, $subject, $body, $headers);
-        header ('location:thx.php');
-    }
-
+// Function to select and display a random image
+function random_images($photos) {
+    $i = rand(0, count($photos) - 1); // Generate a random index
+    $selected_image = $photos[$i] . '.jpg'; // Build the file name with .jpg extension
+    return '<img src="images/' . $selected_image . '" alt="' . $photos[$i] . '">';
 }

@@ -1,6 +1,6 @@
 <?php
 include('config.php');
-include('./includes/header.php');
+include('includes/header.php');
 ?>
     <div id="wrapper">
     
@@ -9,11 +9,9 @@ include('./includes/header.php');
         <h1>Welcome to our Contact Page!</h1>
         <p>In this assignment I am going to be showcasing my switch with a variety of video games while giving a small description of each game.</p>
     <?php 
-    include('/includes/form.php') ;?>
+    include('includes/form.php') ;?>
     </main>
 
-    <aside>    
-    </aside>
 
     </div>
     <!--end of wrapper-->

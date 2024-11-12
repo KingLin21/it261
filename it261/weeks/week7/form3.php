@@ -57,12 +57,22 @@ if(empty($_POST['gender'])) {
             $gender= $_POST['gender'];
     }
 
-if(empty($_POST['phone'])) {
-        $phone_err = 'Please fill in your phone number';
+    if(empty($_POST['phone'])) { // if empty, type in your number
+        $phone_err = 'Your phone number please!';
+        } elseif(array_key_exists('phone', $_POST)){
+        if(!preg_match('/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/', $_POST['phone']))
+        { // if you are not typing the requested format of xxx-xxx-xxxx, display Invalid format
+        $phone_err = 'Invalid format!';
+        } else{
+        $phone = $_POST['phone'];
+        } // end else
+        } // end main if
+// if(empty($_POST['phone'])) {
+//         $phone_err = 'Please fill in your phone number';
         
-    } else {
-            $phone= $_POST['phone'];
-    }
+//     } else {
+//             $phone= $_POST['phone'];
+//     }
 if(empty($_POST['comments'])) {
         $comments_err = 'We value your feedback';
         
@@ -112,7 +122,7 @@ $headers = array(
 );
 
 if(!empty(
-    $first_name && $last_name && $email && $gender && $wines && $regions && $phone && $comments)) {
+    $first_name && $last_name && $email && $gender && $wines && $regions && $phone && $comments) && preg_match('/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/', $_POST['phone'])) {
         mail($to, $subject, $body, $headers);
         header ('location:thx.php');
     }
@@ -127,7 +137,7 @@ if(!empty(
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Second form in week 6!</title>
+    <title>Form 3 in week 7!</title>
     <link href="css/styles.css" type="text/css" rel="stylesheet">
 </head>
 <body>
@@ -152,7 +162,7 @@ Contact Sebastian
 <li><input type="radio" name="gender" value="neither" <?php if(isset($_POST['gender']) && $_POST['gender'] == 'neither') echo 'checked = "Checked"' ;?>>Neither</li>
 </ul>
 <label>Phone</label>
-<input type="tel" name="phone" value="<?php if(isset($_POST['phone'])) echo htmlspecialchars($_POST['phone']) ;?>">
+<input type="tel" name="phone" placeholder="xxx-xxx-xxxx" value="<?php if(isset($_POST['phone'])) echo htmlspecialchars($_POST['phone']) ;?>">
 <label>Favorite Wines</label>
 <ul>
 <li><input type="checkbox" name="wines[]" value="cab" <?php if(isset($_POST['wines']) && in_array('cab', $wines)) echo 'checked = "checked"';?>>Cabernet</li>
@@ -161,7 +171,7 @@ Contact Sebastian
 <li><input type="checkbox" name="wines[]" value="malbec" <?php if(isset($_POST['wines']) && in_array('malbec', $wines)) echo 'checked = "checked"';?>>Malbec</li>
 <li><input type="checkbox" name="wines[]" value="red" <?php if(isset($_POST['wines']) && in_array('red', $wines)) echo 'checked = "checked"';?>>Red Blend</li>
 </ul>
-<span><?php echo $wine_err ;?></span>
+<span><?php echo $wines_err ;?></span>
 <label>Regions</label>
 <select name="regions">
 <option value="" <?php if(isset($_POST['regions']) && is_null($_POST['regions'])) echo 'selected = "unselected"'  ;?>>Select one!</option>

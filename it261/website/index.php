@@ -5,7 +5,7 @@ include('./includes/header.php');
     <div id="wrapper">
     
     <div id="hero">
-    <img src="images/twelve.jpg" alt="Twelve is greater than 3">
+    <?php echo random_images($photos); ?>
 
     </div>
     <!--end hero-->
