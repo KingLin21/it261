@@ -1,6 +1,6 @@
 <?php
 include('config.php');
-include('./includes/header.php');
+include('includes/header.php');
 ?>
     <div id="wrapper">
     
@@ -74,7 +74,7 @@ include('./includes/header.php');
     </main>
 
     <aside>
-    <img src ="./images/<?php echo $pic;?>" alt ="<?php echo $alt;?>">
+    <img src ="images/<?php echo $pic;?>" alt ="<?php echo $alt;?>">
     
     </aside>
 
@@ -82,4 +82,4 @@ include('./includes/header.php');
     <!--end of wrapper-->
 
     <?php
-    include('./includes/footer.php');
+    include('includes/footer.php');

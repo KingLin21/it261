@@ -1,6 +1,6 @@
 <?php
 include('config.php');
-include('./includes/header.php');
+include('includes/header.php');
 ?>
     <div id="wrapper">
     
@@ -39,4 +39,4 @@ include('./includes/header.php');
     <!--end of wrapper-->
 
     <?php
-    include('./includes/footer.php');
+    include('includes/footer.php');

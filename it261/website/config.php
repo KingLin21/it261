@@ -256,3 +256,11 @@ function random_images($photos) {
     $selected_image = $photos[$i] . '.jpg'; // Build the file name with .jpg extension
     return '<img src="images/' . $selected_image . '" alt="' . $photos[$i] . '">';
 }
+
+$characters = [
+    'Thrall' => 'thra_Warchief of the Horde and shaman.',
+    'Jaina_Proudmoore' => 'jain_Powerful mage and ruler of Kul Tiras.',
+    'Sylvanas_Windrunner' => 'sylv_Former Warchief and leader of the Forsaken.',
+    'Anduin_Wrynn' => 'andu_Young King of Stormwind and a priest.',
+    'Illidan_Stormrage' => 'illi_The Betrayer and a demon hunter.'
+];
