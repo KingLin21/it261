@@ -1,5 +1,23 @@
 <?php
 ob_start();
+define('DEBUG', 'TRUE');  // We want to see our errors
+
+// Include credentials file for database connection
+include('credentials.php');
+
+// Error handling function
+function myError($myFile, $myLine, $errorMsg)
+{
+    if (defined('DEBUG') && DEBUG) {
+        echo 'Error in file: <b>' . $myFile . '</b> on line: <b>' . $myLine . '</b><br>';
+        echo 'Error message: <b>' . $errorMsg . '</b>';
+        die();
+    } else {
+        echo 'Houston, we have a problem!';
+        die();
+    }
+}
+
 define('THIS_PAGE', basename($_SERVER['PHP_SELF']));
 
 switch(THIS_PAGE) {
@@ -11,7 +29,14 @@ case 'about.php' :
 $title = 'About page of our Website Project';
 $body = 'about inner';
 break;
-
+case 'characters.php':
+$title = 'Characters page of our Website Project';
+$body = 'characters inner';
+break;
+case 'view.php':
+$title = 'Character Details - Lord of the Rings';
+$body = 'view inner';
+break;
 case 'daily.php' :
 $title = 'Daily page of our Website Project';
 $body = 'daily inner';
@@ -34,7 +59,7 @@ $nav = array(
     'index.php' => 'Home',
     'about.php' => 'About',
     'daily.php' => 'Daily',
-    'project.php' => 'Project',
+    'characters.php' => 'Characters',
     'contact.php' => 'Contact',
     'gallery.php' => 'Gallery',
 );
